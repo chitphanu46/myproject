@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เข้าสู่ระบบ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background: radial-gradient(ellipse at bottom, #1e3a8a 0%, #0f172a 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #6B7280;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 10;
+    }
+
+    .relative::before {
+      content: "";
+      position: absolute;
+      left: 3.25rem;
+      top: 25%;
+      bottom: 25%;
+      width: 1px;
+      background-color: #d1d5db;
+      z-index: 5;
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding-right: 3rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      width: 100%;
+      height: 3rem;
+      font-size: 1rem;
+      color: #374151;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.5);
+      border-color: #2563eb;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #6B7280;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+      opacity: 0;
+      transform: translate(0, 0) rotate(-45deg);
+      animation: shooting 3s ease-in-out infinite;
+      filter: blur(1px);
+      z-index: 0;
+    }
+
+    @keyframes shooting {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(-45deg);
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(500px, 500px) rotate(-45deg);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <!-- ดาวตก -->
+  <div class="shooting-star" style="top: 10%; left: 10%; animation-duration: 1.2s; animation-delay: 0s;"></div>
+  <div class="shooting-star" style="top: 30%; left: 40%; animation-duration: 1.5s; animation-delay: 1s;"></div>
+  <div class="shooting-star" style="top: 20%; left: 70%; animation-duration: 1.8s; animation-delay: 2s;"></div>
+  <div class="shooting-star" style="top: 50%; left: 20%; animation-duration: 1.3s; animation-delay: 3s;"></div>
+  <div class="shooting-star" style="top: 40%; left: 80%; animation-duration: 1.6s; animation-delay: 4s;"></div>
+
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md z-10">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">เข้าสู่ระบบ</h2>
+
+    <form id="loginForm" class="space-y-4">
+      <!-- Email -->
+      <div class="relative">
+        <i class="fas fa-envelope input-icon"></i>
+        <input type="email" id="email" name="email" placeholder="อีเมล"
+               class="pl-14 pr-4 py-3 w-full border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+               required />
+      </div>
+
+      <!-- Password -->
+      <div class="relative">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" id="password" name="password" placeholder="รหัสผ่าน"
+               class="pl-14 pr-12 py-3 w-full border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+               required />
+        <!-- Toggle visibility -->
+        <button type="button" id="togglePassword"
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none">
+          <i class="fas fa-eye"></i>
+        </button>
+      </div>
+
+      <!-- User Type -->
+      <div class="relative">
+        <i class="fas fa-user input-icon"></i>
+        <select id="userType" name="userType" required style="padding-left: 3.75rem;">
+          <option value="user">ผู้ใช้ทั่วไป</option>
+          <option value="technician">ช่าง</option>
+          <option value="admins">แอดมิน</option>
+        </select>
+        <i class="fas fa-chevron-down select-arrow"></i>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold transition duration-300">
+          เข้าสู่ระบบ
+        </button>
+
+        <button type="button"
+                onclick="window.location.href='register.html'"
+                class="w-full mt-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-3 rounded-xl font-bold transition duration-300">
+          สมัครสมาชิก
+        </button>
+
+        <a href="forgot-password.html" class="block mt-4 text-blue-700 hover:underline">ลืมรหัสผ่าน?</a>
+      </div>
+    </form>
+
+    <div id="errorMessage" class="text-center text-red-500 mt-4 font-semibold"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#loginForm').submit(function (event) {
+        event.preventDefault();
+
+        const email = $('#email').val();
+        const password = $('#password').val();
+        const userType = $('#userType').val();
+
+        $.ajax({
+          type: 'POST',
+          url: 'login.php',
+          data: { email, password, userType },
+          success: function (response) {
+            if (response === "success") {
+              if (userType === "technician") {
+                window.location.href = 'c.php';
+              } else if (userType === "user") {
+                window.location.href = 'services.php';
+              } else if (userType === "admins") {  
+                window.location.href = 'admin.php';
+              }
+            } else {
+              $('#errorMessage').text(response);
+            }
+          }
+        });
+      });
+
+      $('#togglePassword').on('click', function () {
+        const passwordInput = $('#password');
+        const type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+        passwordInput.attr('type', type);
+        $(this).find('i').toggleClass('fa-eye fa-eye-slash');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>บริการแจ้งซ่อมอุปกรณ์ภายในบ้าน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold">บริการแจ้งซ่อมอุปกรณ์ภายในบ้าน</div>
+      <div class="space-x-4">
+        <a href="login.html" class="hover:underline">หน้าแรก</a>
+        <a href="About_service.html" class="hover:underline">บริการของเรา</a>
+        <a href="contact.html" class="hover:underline">ติดต่อเรา</a>
+        <div class="relative inline-block z-20">
+          <button id="userMenuButton" class="hover:underline">เข้าสู่ระบบ / สมัครสมาชิก</button>
+          <div id="userMenu" class="absolute right-0 mt-2 bg-white shadow-lg rounded hidden z-30">
+            <a href="login.html" class="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap w-max">เข้าสู่ระบบ</a>
+            <a href="register.html" class="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap w-max">สมัครสมาชิก</a>
+            <a href="register_repairman.php" class="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap w-max">สมัครสมาชิกสำหรับช่าง</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- เนื้อหาหลัก เพิ่ม main และ flex-grow -->
+  <main class="flex-grow">
+    <!-- Hero Header -->
+    <header class="relative bg-cover bg-center text-white text-center py-20" style="background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.pixabay.com/photo/2024/07/01/20/41/ai-generated-8866051_1280.jpg');">
+      <div class="relative z-10">
+        <h1 class="text-4xl font-bold">ยินดีต้อนรับสู่บริการแจ้งซ่อม</h1>
+        <p class="mt-4 text-lg">ให้บริการแจ้งซ่อมออนไลน์ สะดวก รวดเร็ว และมีประสิทธิภาพ</p>
+
+<div class="mt-8 flex justify-center">
+   <div class="bg-white rounded-full shadow-lg flex items-center w-full max-w-2xl px-4 py-2 space-x-2 relative">
+    <input
+      type="text"
+      id="technicianSearch"
+      placeholder="ค้นหาประเภทช่างที่ต้องการ"
+      class="flex-grow px-4 py-2 rounded-l-full focus:outline-none text-gray-800"
+    />
+    <div id="searchResults" class="absolute z-40 bg-white border border-gray-300 mt-1 rounded shadow w-full max-w-2xl hidden text-left" style="top: 100%; left: 0; color: black;"></div>
+
+    <a href="search_results.html" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold px-6 py-2 rounded-full">
+      ค้นหา
+    </a>
+    <a href="login.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-2 rounded-full">
+      เริ่มต้นแจ้งซ่อม
+    </a>
+  </div>
+</div>
+
+    </header>
+
+    <!-- Services -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">บริการของเรา</h2>
+        <p class="text-gray-600 mb-12">เราให้บริการหลากหลายครอบคลุมทุกความต้องการ</p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <img src="https://cdn-icons-png.freepik.com/256/8701/8701163.png?semt=ais_hybrid" alt="ซ่อมแซมอุปกรณ์" class="w-24 h-auto mx-auto mb-4 transform transition-transform hover:scale-110" />
+            <h4 class="text-xl font-semibold">ซ่อมแซมอุปกรณ์</h4>
+            <p class="text-gray-600">บริการซ่อมแซมอุปกรณ์ที่ชำรุด พร้อมการรับประกัน</p>
+          </div>
+          <div>
+            <img src="https://cdn-icons-png.freepik.com/256/5261/5261327.png?semt=ais_hybrid" alt="ตรวจเช็คปัญหา" class="w-24 h-auto mx-auto mb-4 transform transition-transform hover:scale-110" />
+            <h4 class="text-xl font-semibold">ตรวจเช็คปัญหา</h4>
+            <p class="text-gray-600">วิเคราะห์และตรวจสอบปัญหาที่เกิดขึ้นอย่างมืออาชีพ</p>
+          </div>
+          <div>
+            <img src="https://cdn-icons-png.freepik.com/256/17237/17237778.png?semt=ais_hybrid" alt="บริการถึงที่" class="w-24 h-auto mx-auto mb-4 transform transition-transform hover:scale-110" />
+            <h4 class="text-xl font-semibold">บริการถึงที่</h4>
+            <p class="text-gray-600">ให้บริการถึงสถานที่ของคุณโดยช่างผู้เชี่ยวชาญ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+  // เปิด/ปิดเมนู
+  document.getElementById('userMenuButton').addEventListener('click', function (e) {
+    e.stopPropagation(); // กัน bubbling
+    document.getElementById('userMenu').classList.toggle('hidden');
+  });
+
+  // ปิดเมนูเมื่อคลิกที่อื่น
+  document.addEventListener('click', function () {
+    document.getElementById('userMenu').classList.add('hidden');
+  });
+  const searchInput = document.getElementById('technicianSearch');
+  const resultBox = document.getElementById('searchResults');
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim();
+    if (query.length < 2) {
+      resultBox.innerHTML = '';
+      resultBox.classList.add('hidden');
+      return;
+    }
+
+    fetch('search_technicians.php?q=' + encodeURIComponent(query))
+      .then(res => res.json())
+      .then(data => {
+        resultBox.innerHTML = '';
+        if (data.length > 0) {
+          data.forEach(tech => {
+            const item = document.createElement('div');
+            item.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer text-left';
+            item.textContent = `${tech.name} - ${tech.technician_type}`;
+            resultBox.appendChild(item);
+          });
+          resultBox.classList.remove('hidden');
+        } else {
+          resultBox.innerHTML = '<div class="px-4 py-2 text-gray-500">ไม่พบช่างที่ตรงกับคำค้นหา</div>';
+          resultBox.classList.remove('hidden');
+        }
+      })
+      .catch(err => {
+        resultBox.innerHTML = '<div class="px-4 py-2 text-red-500">เกิดข้อผิดพลาด</div>';
+        resultBox.classList.remove('hidden');
+      });
+  });
+
+  // ซ่อนผลลัพธ์เมื่อคลิกข้างนอก
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !resultBox.contains(e.target)) {
+      resultBox.classList.add('hidden');
+    }
+  });
+</script>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 บริการซ่อมอุปกรณ์ภายในบ้าน</p>
+  </footer>
+
+</body>
+</html>
